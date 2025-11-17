@@ -38,15 +38,15 @@ class WeatherScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      WeatherAppBar(),
+                      WeatherAppBar(weather.name!),
                       SizedBox(height: 50),
                       WeatherDate(timestamp: weather.dt!),
                       SizedBox(height: 15),
                       WeatherUpdateTime(timestamp: weather.dt!),
                       SizedBox(height: 30),
-                      WeatherConditionIcon(),
+                      WeatherConditionIcon(model: weather),
                       Text(
-                        'Clear',
+                        weather.description!,
                         style: TextStyle(
                           fontSize: 33,
                           fontWeight: FontWeight.bold,

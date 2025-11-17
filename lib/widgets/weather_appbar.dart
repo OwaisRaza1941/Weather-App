@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class WeatherAppBar extends StatelessWidget {
-  const WeatherAppBar({super.key});
+  final String cityName;
+  const WeatherAppBar(this.cityName, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +11,7 @@ class WeatherAppBar extends StatelessWidget {
         Icon(Icons.location_on_sharp, size: 30, color: Colors.white),
         SizedBox(width: 15),
         Text(
-          'Paris',
+          cityName,
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold,
