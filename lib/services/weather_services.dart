@@ -7,7 +7,7 @@ class WeatherServices {
       'https://api.openweathermap.org/data/2.5/weather?q=Karachi&appid=fbfd01c9c30f2965b83ed171fcbb2284&units=metric';
 
   /// GET API
-  static Future<List<dynamic>> get() async {
+  static Future<Map> get() async {
     Uri uri = Uri.parse(baseUrl);
     var response = await http.get(uri);
     if (response.statusCode == 200) {

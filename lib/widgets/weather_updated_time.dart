@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class WeatherUpdateTime extends StatelessWidget {
-  const WeatherUpdateTime({super.key});
+  final int timestamp;
+  const WeatherUpdateTime({super.key, required this.timestamp});
 
   @override
   Widget build(BuildContext context) {
+    final date = DateTime.fromMicrosecondsSinceEpoch(timestamp * 1000);
+    final formattedDate = DateFormat('hh:mm a').format(date);
     return Text(
-      'updated 6/7/2024 4:45 PM',
-      style:  TextStyle(
+      'Updated at $formattedDate',
+      style: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.w300,
         color: Colors.white,

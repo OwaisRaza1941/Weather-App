@@ -8,15 +8,20 @@ class WeatherController extends GetxController {
   /// Obsorbable List
   RxList<WeatherModel> allWeatherData = <WeatherModel>[].obs;
 
+  RxBool isLoading = false.obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    getWeather();
+  }
+
   /// Get Weather Data and Add Reactive List
   Future<void> getWeather() async {
+    isLoading.value = true;
     try {
-      List<dynamic> data = await WeatherServices.get().timeout(
-        Duration(seconds: 3),
-      );
-      for (var item in data) {
-        allWeatherData.add(WeatherModel.fromJson(item));
-      }
+      Map response = await WeatherServices.get().timeout(Duration(seconds: 3));
+      allWeatherData.add(WeatherModel.fromJson(response));
     } on SocketException {
       Get.snackbar(
         'No Internet',
@@ -26,8 +31,10 @@ class WeatherController extends GetxController {
       Get.snackbar('Da', 'message');
     } catch (e) {
       if (!Get.isSnackbarOpen) {
-        Get.snackbar('Please Wrong', 'Some thin wrong');
+        Get.snackbar('Please Wrong', 'Some thing went wrong');
       }
+    } finally {
+      isLoading.value = false;
     }
   }
 }

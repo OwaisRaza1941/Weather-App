@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class WeatherDate extends StatelessWidget {
-  const WeatherDate({super.key});
+  final int timestamp;
+  const WeatherDate({super.key, required this.timestamp});
 
   @override
   Widget build(BuildContext context) {
+    // API timestamp seconds mein hota hai → milliseconds banayenge
+    DateTime date = DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
+    String formattedDate = DateFormat('EEEE, MMM d').format(date);
+
     return Text(
-      'June 07',
+      formattedDate,
       style: TextStyle(
-        fontSize: 33,
-        fontWeight: FontWeight.bold,
+        fontSize: 22,
         color: Colors.white,
+        fontWeight: FontWeight.w600,
       ),
     );
   }
