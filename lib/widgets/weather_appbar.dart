@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+
+class WeatherAppBar extends StatelessWidget {
+  const WeatherAppBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Icon(Icons.location_on_sharp, size: 30, color: Colors.white),
+        SizedBox(width: 15),
+        Text(
+          'Paris',
+          style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+        Spacer(),
+        IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.menu, size: 30, color: Colors.white),
+        ),
+      ],
+    );
+  }
+}
