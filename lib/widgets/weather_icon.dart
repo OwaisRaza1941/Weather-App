@@ -12,33 +12,32 @@ class WeatherConditionIcon extends StatelessWidget {
         model.description!.toLowerCase() == 'rain') {
       return Lottie.asset(
         'assets/images/rain.json',
-        width: 100,
-        height: 100,
-        fit: BoxFit.contain,
+        width: 150,
+        height: 150,
+        fit: BoxFit.cover,
       );
     } else if (model.description != null &&
         model.description!.toLowerCase() == 'cloudy') {
       return Lottie.asset(
         'assets/images/cloudy.json',
-        width: 100,
-        height: 100,
-        fit: BoxFit.contain,
+        width: 150,
+        height: 150,
+        fit: BoxFit.cover,
       );
     } else if (model.description != null &&
         model.description!.toLowerCase() == 'snowfall') {
       return Lottie.asset(
         'assets/images/snowfall.json',
-
-        width: 100,
-        height: 100,
-        fit: BoxFit.contain,
+        width: 150,
+        height: 150,
+        fit: BoxFit.cover,
       );
     } else {
       return Lottie.asset(
         'assets/images/sunny.json',
-        width: 100,
-        height: 100,
-        fit: BoxFit.contain,
+        width: 120,
+        height: 120,
+        fit: BoxFit.cover,
       );
     }
   }
