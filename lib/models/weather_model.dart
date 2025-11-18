@@ -5,7 +5,7 @@ class WeatherModel {
   final double? temprature;
   final String? description;
   final int? humidity;
-  final double? wind;
+  final double? windSpeed;
   final double? feelsLike;
   final int? sunrise;
   final int? sunset;
@@ -18,7 +18,7 @@ class WeatherModel {
     this.temprature,
     this.description,
     this.humidity,
-    this.wind,
+    this.windSpeed,
     this.feelsLike,
     this.sunrise,
     this.sunset,
@@ -33,7 +33,7 @@ class WeatherModel {
       temprature: json['main']['temp'],
       description: json['weather'][0]['description'],
       humidity: json['main']['humidity'],
-      wind: json['wind']['speed'],
+      windSpeed: json['wind']['speed'],
       feelsLike: json['main']['feels_like'],
       sunrise: json["sys"]['sunrise'],
       sunset: json["sys"]['sunset'],

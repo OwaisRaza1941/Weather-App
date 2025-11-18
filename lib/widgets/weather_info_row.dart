@@ -2,27 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/widgets/weather_info_icon.dart';
 
 class WeatherInfoRow extends StatelessWidget {
-  const WeatherInfoRow({super.key});
+  final int humidity;
+  final double windSpeed;
+  final double feelsLike;
+  const WeatherInfoRow({
+    super.key,
+    required this.humidity,
+    required this.windSpeed,
+    required this.feelsLike,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: const [
+      children: [
         WeatherInfoItem(
           icon: 'assets/icons/humidity_icon.png',
           title: 'HUMIDITY',
-          value: '56%',
+          value: '${humidity}%',
         ),
         WeatherInfoItem(
           icon: 'assets/icons/wind_icon.png',
           title: 'WIND',
-          value: '4.6km/h',
+          value: '${windSpeed} m/s',
         ),
         WeatherInfoItem(
           icon: 'assets/icons/feels_like_icon.png',
           title: 'Feels Like',
-          value: '36°',
+          value: '${feelsLike.toStringAsFixed(1)}°',
         ),
       ],
     );

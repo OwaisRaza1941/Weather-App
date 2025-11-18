@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class TempatureDeggree extends StatelessWidget {
-  const TempatureDeggree({super.key});
+  final String tempature;
+  const TempatureDeggree({super.key, required this.tempature});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +11,7 @@ class TempatureDeggree extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '24',
+          tempature,
           style: TextStyle(
             fontSize: 100,
             fontWeight: FontWeight.bold,

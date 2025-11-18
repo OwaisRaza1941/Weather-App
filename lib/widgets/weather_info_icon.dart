@@ -19,7 +19,7 @@ class WeatherInfoItem extends StatelessWidget {
         Image.asset(icon, height: 40, width: 40),
         Text(
           title,
-          style:  TextStyle(
+          style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w600,
             color: Colors.white,
@@ -27,7 +27,7 @@ class WeatherInfoItem extends StatelessWidget {
         ),
         Text(
           value,
-          style:  TextStyle(
+          style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w500,
             color: Colors.white,

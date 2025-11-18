@@ -53,9 +53,15 @@ class WeatherScreen extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
-                      TempatureDeggree(),
+                      TempatureDeggree(
+                        tempature: weather.temprature!.toStringAsFixed(1),
+                      ),
                       SizedBox(height: 40),
-                      WeatherInfoRow(),
+                      WeatherInfoRow(
+                        humidity: weather.humidity!,
+                        windSpeed: weather.windSpeed!,
+                        feelsLike: weather.feelsLike!,
+                      ),
                       SizedBox(height: 20),
 
                       Container(
