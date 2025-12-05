@@ -35,44 +35,46 @@ class WeatherScreen extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 60, left: 20, right: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      WeatherAppBar(weather.name!),
-                      SizedBox(height: 50),
-                      WeatherDate(timestamp: weather.dt!),
-                      SizedBox(height: 15),
-                      WeatherUpdateTime(timestamp: weather.dt!),
-                      SizedBox(height: 30),
-                      WeatherConditionIcon(model: weather),
-                      Text(
-                        weather.description!,
-                        style: TextStyle(
-                          fontSize: 33,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        WeatherAppBar(weather.name!),
+                        SizedBox(height: 50),
+                        WeatherDate(timestamp: weather.dt!),
+                        SizedBox(height: 15),
+                        WeatherUpdateTime(timestamp: weather.dt!),
+                        SizedBox(height: 30),
+                        WeatherConditionIcon(model: weather),
+                        Text(
+                          weather.description!,
+                          style: TextStyle(
+                            fontSize: 33,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
                         ),
-                      ),
-                      TempatureDeggree(
-                        tempature: weather.temprature!.toStringAsFixed(1),
-                      ),
-                      SizedBox(height: 40),
-                      WeatherInfoRow(
-                        humidity: weather.humidity!,
-                        windSpeed: weather.windSpeed!,
-                        feelsLike: weather.feelsLike!,
-                      ),
-                      SizedBox(height: 20),
+                        TempatureDeggree(
+                          tempature: weather.temprature!.toStringAsFixed(1),
+                        ),
+                        SizedBox(height: 40),
+                        WeatherInfoRow(
+                          humidity: weather.humidity!,
+                          windSpeed: weather.windSpeed!,
+                          feelsLike: weather.feelsLike!,
+                        ),
+                        SizedBox(height: 20),
 
-                      Container(
-                        width: double.infinity,
-                        height: 200,
-                        decoration: BoxDecoration(
-                          color: Color(0xFF535353).withOpacity(0.5),
-                          borderRadius: BorderRadius.circular(25),
+                        Container(
+                          width: double.infinity,
+                          height: 200,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF535353).withOpacity(0.5),
+                            borderRadius: BorderRadius.circular(25),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ],

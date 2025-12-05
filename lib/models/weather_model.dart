@@ -5,7 +5,7 @@ class WeatherModel {
   final double? temprature;
   final String? description;
   final int? humidity;
-  final double? windSpeed;
+  final int? windSpeed;
   final double? feelsLike;
   final int? sunrise;
   final int? sunset;

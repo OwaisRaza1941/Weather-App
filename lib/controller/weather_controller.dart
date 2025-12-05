@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:get/get.dart';
 import 'package:weather_app/models/weather_model.dart';
 import 'package:weather_app/services/weather_services.dart';
+import 'package:weather_app/widgets/nointernet.dart';
 
 class WeatherController extends GetxController {
   /// Obsorbable List
@@ -20,16 +21,14 @@ class WeatherController extends GetxController {
   Future<void> getWeather() async {
     isLoading.value = true;
     try {
-      Map response = await WeatherServices.get().timeout(Duration(seconds: 3));
+      Map response = await WeatherServices.get().timeout(Duration(seconds: 10));
       allWeatherData.add(WeatherModel.fromJson(response));
     } on SocketException {
-      Get.snackbar(
-        'No Internet',
-        'Please check your Internet connect, Try again',
-      );
+      Get.to(NetworkError());
     } on TimeoutException {
       Get.snackbar('Da', 'message');
     } catch (e) {
+      print('Error : $e');
       if (!Get.isSnackbarOpen) {
         Get.snackbar('Please Wrong', 'Some thing went wrong');
       }

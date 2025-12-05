@@ -3,7 +3,7 @@ import 'package:weather_app/widgets/weather_info_icon.dart';
 
 class WeatherInfoRow extends StatelessWidget {
   final int humidity;
-  final double windSpeed;
+  final int windSpeed;
   final double feelsLike;
   const WeatherInfoRow({
     super.key,
