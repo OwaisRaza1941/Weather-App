@@ -3,12 +3,13 @@ import 'dart:io';
 import 'package:get/get.dart';
 import 'package:weather_app/models/weather_model.dart';
 import 'package:weather_app/services/weather_services.dart';
-import 'package:weather_app/widgets/nointernet.dart';
+import 'package:weather_app/widgets/network_error.dart';
 
 class WeatherController extends GetxController {
   /// Obsorbable List
   RxList<WeatherModel> allWeatherData = <WeatherModel>[].obs;
 
+  /// Loading Bar
   RxBool isLoading = false.obs;
 
   @override
@@ -28,7 +29,7 @@ class WeatherController extends GetxController {
     } on TimeoutException {
       Get.snackbar('Da', 'message');
     } catch (e) {
-      print('Error : $e');
+      // print('Error : $e');
       if (!Get.isSnackbarOpen) {
         Get.snackbar('Please Wrong', 'Some thing went wrong');
       }

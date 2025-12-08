@@ -6,6 +6,7 @@ class TempatureDeggree extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -13,7 +14,7 @@ class TempatureDeggree extends StatelessWidget {
         Text(
           tempature,
           style: TextStyle(
-            fontSize: 100,
+            fontSize: size.height * 0.10,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),

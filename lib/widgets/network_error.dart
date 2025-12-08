@@ -6,10 +6,11 @@ class NetworkError extends StatelessWidget {
   const NetworkError({super.key});
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.black,
       body: Padding(
-        padding: EdgeInsets.only(left: 20, right: 20),
+        padding: EdgeInsets.only(left: 0, right: 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -31,9 +32,8 @@ class NetworkError extends StatelessWidget {
             SizedBox(height: 20),
             Lottie.asset(
               'assets/animations/earth.json',
-              width: 120,
-              height: 120,
-              fit: BoxFit.cover,
+              width: size.width * 0.3,
+              fit: BoxFit.contain,
             ),
             SizedBox(height: 10),
             Text(

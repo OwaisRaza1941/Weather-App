@@ -34,17 +34,17 @@ class WeatherScreen extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 60, left: 20, right: 20),
+                  padding: EdgeInsets.only(top: 50, left: 20, right: 20, bottom: 10),
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         WeatherAppBar(weather.name!),
-                        SizedBox(height: 50),
-                        WeatherDate(timestamp: weather.dt!),
-                        SizedBox(height: 15),
-                        WeatherUpdateTime(timestamp: weather.dt!),
                         SizedBox(height: 30),
+                        WeatherDate(timestamp: weather.dt!),
+                        SizedBox(height: 10),
+                        WeatherUpdateTime(timestamp: weather.dt!),
+                        SizedBox(height: 20),
                         WeatherConditionIcon(model: weather),
                         Text(
                           weather.description!,
@@ -55,16 +55,15 @@ class WeatherScreen extends StatelessWidget {
                           ),
                         ),
                         TempatureDeggree(
-                          tempature: weather.temprature!.toStringAsFixed(1),
+                          tempature: weather.temprature!.toInt().toString(),
                         ),
-                        SizedBox(height: 40),
+                        SizedBox(height: 20),
                         WeatherInfoRow(
                           humidity: weather.humidity!,
                           windSpeed: weather.windSpeed!,
                           feelsLike: weather.feelsLike!,
                         ),
                         SizedBox(height: 20),
-
                         Container(
                           width: double.infinity,
                           height: 200,
