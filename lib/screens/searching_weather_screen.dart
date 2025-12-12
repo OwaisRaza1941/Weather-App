@@ -6,6 +6,8 @@ class SearchingWeatherScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController userSearchController = TextEditingController();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -21,6 +23,7 @@ class SearchingWeatherScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 decoration: Styles.searchingBarStyle,
                 child: TextField(
+                  controller: userSearchController,
                   cursorColor: Colors.white,
                   style: TextStyle(fontSize: 16, color: Colors.white),
                   decoration: InputDecoration(

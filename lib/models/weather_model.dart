@@ -2,11 +2,11 @@ class WeatherModel {
   /// All Attributes API
   final String? name;
   final int? timeZone;
-  final double? temprature;
+  final num? temprature;
   final String? description;
-  final int? humidity;
-  final double? windSpeed;
-  final double? feelsLike;
+  final num? humidity;
+  final num? windSpeed;
+  final num? feelsLike;
   final int? sunrise;
   final int? sunset;
   final int? dt;

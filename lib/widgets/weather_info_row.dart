@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/widgets/weather_info_icon.dart';
 
 class WeatherInfoRow extends StatelessWidget {
-  final int humidity;
-  final double windSpeed;
-  final double feelsLike;
+  final num humidity;
+  final num windSpeed;
+  final num feelsLike;
   const WeatherInfoRow({
     super.key,
     required this.humidity,

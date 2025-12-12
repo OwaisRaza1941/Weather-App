@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:weather_app/controller/weather_controller.dart';
 import 'package:weather_app/widgets/tempature_deggree.dart';
 import 'package:weather_app/widgets/weather_appbar.dart';
@@ -20,7 +21,14 @@ class WeatherScreen extends StatelessWidget {
         height: size.height,
         child: Obx(() {
           if (controller.isLoading.value) {
-            return Center(child: CircularProgressIndicator());
+            return Center(
+              child: LoadingAnimationWidget.discreteCircle(
+                secondRingColor: Colors.black,
+                thirdRingColor: Colors.yellow,
+                color: Colors.green,
+                size: 50,
+              ),
+            );
           } else if (controller.allWeatherData.isEmpty) {
             return Center(child: Text('No Weather Data'));
           } else {
@@ -34,7 +42,12 @@ class WeatherScreen extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 50, left: 20, right: 20, bottom: 10),
+                  padding: EdgeInsets.only(
+                    top: 50,
+                    left: 20,
+                    right: 20,
+                    bottom: 10,
+                  ),
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
