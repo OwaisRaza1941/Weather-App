@@ -14,17 +14,15 @@ class WeatherController extends GetxController {
   /// Loading Bar
   RxBool isLoading = false.obs;
 
-  @override
-  void onInit() async {
-    super.onInit();
-    await getWeather();
-  }
-
   /// Get Weather Data and Add Reactive List
-  Future<void> getWeather() async {
+  Future<void> getWeather(String cityName) async {
     isLoading.value = true;
     try {
-      Map response = await WeatherServices.get().timeout(Duration(seconds: 5));
+      Map response = await WeatherServices.get(
+        cityName,
+      ).timeout(Duration(seconds: 5));
+
+      allWeatherData.clear();
       allWeatherData.add(WeatherModel.fromJson(response));
     } on SocketException {
       Get.to(NetworkError());
@@ -34,7 +32,7 @@ class WeatherController extends GetxController {
         builder: (context) {
           return TimeoutDailog(
             onRetry: () async {
-              await getWeather();
+              await getWeather(cityName);
             },
           );
         },

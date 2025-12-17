@@ -15,7 +15,7 @@ class WeatherScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    WeatherController controller = Get.put(WeatherController());
+    WeatherController controller = Get.find();
     return Scaffold(
       body: SizedBox(
         height: size.height,
@@ -67,9 +67,11 @@ class WeatherScreen extends StatelessWidget {
                             color: Colors.white,
                           ),
                         ),
+
                         TempatureDeggree(
-                          tempature: weather.temprature!.toInt().toString(),
+                          tempature: weather.tempInCelsius.toStringAsFixed(0),
                         ),
+
                         SizedBox(height: 20),
                         WeatherInfoRow(
                           humidity: weather.humidity!,

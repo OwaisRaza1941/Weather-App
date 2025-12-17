@@ -10,6 +10,7 @@ class WeatherModel {
   final int? sunrise;
   final int? sunset;
   final int? dt;
+  double get tempInCelsius => temprature! - 273.15;
 
   ///Constructor
   WeatherModel({

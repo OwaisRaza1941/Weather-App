@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:weather_app/constants/styles.dart';
+import 'package:weather_app/controller/weather_controller.dart';
+import 'package:weather_app/screens/weather_screen.dart';
 
 class SearchingWeatherScreen extends StatelessWidget {
   const SearchingWeatherScreen({super.key});
@@ -8,12 +11,13 @@ class SearchingWeatherScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController userSearchController = TextEditingController();
 
+    WeatherController controller = Get.put(WeatherController());
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
-        backgroundColor: Colors.black,
         body: Padding(
           padding: EdgeInsets.only(top: 50, left: 20, right: 20),
           child: Column(
@@ -31,7 +35,15 @@ class SearchingWeatherScreen extends StatelessWidget {
                     hintStyle: TextStyle(color: Colors.white),
                     contentPadding: EdgeInsets.symmetric(vertical: 15),
                     suffixIcon: IconButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        String city = userSearchController.text.trim();
+                        if (city.isNotEmpty) {
+                          await controller.getWeather(city);
+                          Get.to(() => WeatherScreen());
+                        } else {
+                          Get.snackbar('Required', 'Please enter city name');
+                        }
+                      },
                       icon: Icon(Icons.search, color: Colors.white),
                     ),
                     border: InputBorder.none,

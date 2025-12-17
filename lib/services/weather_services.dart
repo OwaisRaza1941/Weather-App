@@ -2,13 +2,14 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class WeatherServices {
-  /// Url
-  static const String baseUrl =
-      'https://api.openweathermap.org/data/2.5/weather?q=Karachi&appid=fbfd01c9c30f2965b83ed171fcbb2284&units=metric';
+  // Api KEY
+  static const String apiKey = 'fbfd01c9c30f2965b83ed171fcbb2284';
 
   /// GET API
-  static Future<Map> get() async {
-    Uri uri = Uri.parse(baseUrl);
+  static Future<Map> get(String cityName) async {
+    Uri uri = Uri.parse(
+      'https://api.openweathermap.org/data/2.5/weather?q=$cityName&appid=$apiKey',
+    );
     var response = await http.get(uri);
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
