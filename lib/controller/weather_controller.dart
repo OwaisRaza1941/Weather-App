@@ -45,4 +45,12 @@ class WeatherController extends GetxController {
       isLoading.value = false;
     }
   }
+
+  /// Refresh Ui Screen
+  Future<void> refreshWeather() async {
+    if (allWeatherData.isNotEmpty) {
+      final city = allWeatherData.first.name!;
+      await getWeather(city);
+    }
+  }
 }

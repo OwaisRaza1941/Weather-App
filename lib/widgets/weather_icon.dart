@@ -8,37 +8,34 @@ class WeatherConditionIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (model.description != null &&
-        model.description!.toLowerCase() == 'rain') {
-      return Lottie.asset(
-        'assets/images/rain.json',
-        width: 150,
-        height: 150,
-        fit: BoxFit.cover,
-      );
-    } else if (model.description != null &&
-        model.description!.toLowerCase() == 'cloudy') {
-      return Lottie.asset(
-        'assets/images/cloudy.json',
-        width: 150,
-        height: 150,
-        fit: BoxFit.cover,
-      );
-    } else if (model.description != null &&
-        model.description!.toLowerCase() == 'snowfall') {
-      return Lottie.asset(
-        'assets/images/snowfall.json',
-        width: 150,
-        height: 150,
-        fit: BoxFit.cover,
-      );
-    } else {
-      return Lottie.asset(
-        'assets/images/sunny.json',
-        width: 120,
-        height: 120,
-        fit: BoxFit.cover,
-      );
+    final desc = model.description?.toLowerCase() ?? '';
+
+    if (desc.contains('rain') || desc.contains('drizzle')) {
+      return _lottie('assets/images/rain.json');
+    } 
+    else if (desc.contains('cloud')) {
+      return _lottie('assets/images/cloudy.json');
+    } 
+    else if (desc.contains('snow')) {
+      return _lottie('assets/images/snowfall.json');
+    } 
+    else if (desc.contains('haze') ||
+             desc.contains('smoke') ||
+             desc.contains('mist') ||
+             desc.contains('fog')) {
+      return _lottie('assets/images/sunny.json'); // haze/smoke animation
+    } 
+    else {
+      return _lottie('assets/images/sunny.gif');
     }
+  }
+
+  Widget _lottie(String path) {
+    return Lottie.asset(
+      path,
+      width: 150,
+      height: 150,
+      fit: BoxFit.cover,
+    );
   }
 }

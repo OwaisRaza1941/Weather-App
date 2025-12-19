@@ -8,7 +8,6 @@ class NetworkError extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.black,
       body: Padding(
         padding: EdgeInsets.only(left: 0, right: 0),
         child: Column(
@@ -26,7 +25,6 @@ class NetworkError extends StatelessWidget {
               style: GoogleFonts.poppins(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
               ),
             ),
             SizedBox(height: 20),
@@ -41,7 +39,6 @@ class NetworkError extends StatelessWidget {
               style: GoogleFonts.sora(
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
-                color: Colors.white,
               ),
               textAlign: TextAlign.center,
             ),
