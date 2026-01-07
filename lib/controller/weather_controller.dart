@@ -25,7 +25,7 @@ class WeatherController extends GetxController {
       allWeatherData.clear();
       allWeatherData.add(WeatherModel.fromJson(response));
     } on SocketException {
-      Get.to(NetworkError());
+      Get.offAll(NetworkError());
     } on TimeoutException {
       showDialog(
         context: Get.context!,

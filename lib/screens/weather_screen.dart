@@ -14,7 +14,7 @@ class WeatherScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    // final size = MediaQuery.of(context).size;
     WeatherController controller = Get.find();
     return Scaffold(
       body: Obx(() {
@@ -26,7 +26,6 @@ class WeatherScreen extends StatelessWidget {
             ),
           );
         }
-
         if (controller.allWeatherData.isEmpty) {
           return Center(
             child: Text(
@@ -35,70 +34,68 @@ class WeatherScreen extends StatelessWidget {
             ),
           );
         }
-
         var weather = controller.allWeatherData[0];
-
         return RefreshIndicator(
           color: Colors.white,
           backgroundColor: Colors.black,
           onRefresh: controller.refreshWeather,
-          child: SingleChildScrollView(
-            physics: AlwaysScrollableScrollPhysics(),
-            child: Stack(
-              children: [
-                Image.asset(
-                  'assets/images/lahores.jpg',
-                  width: double.infinity,
-                  height: size.height,
-                  fit: BoxFit.cover,
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: 50,
-                    left: 20,
-                    right: 20,
-                    bottom: 10,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      WeatherAppBar(weather.name!),
-                      SizedBox(height: 30),
-                      WeatherDate(timestamp: weather.dt!),
-                      SizedBox(height: 10),
-                      WeatherUpdateTime(timestamp: weather.dt!),
-                      SizedBox(height: 20),
-                      WeatherConditionIcon(model: weather),
-                      Text(
-                        weather.description!,
-                        style: TextStyle(
-                          fontSize: 33,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+          child: Center(
+            child: SingleChildScrollView(
+              physics: AlwaysScrollableScrollPhysics(),
+              child: Padding(
+                padding: EdgeInsets.only(left: 20, right: 20),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Color(0xFF4FACFE), // blue
+                            Color(0xFF00F2FE), // light blue
+                          ],
                         ),
                       ),
-                      TempatureDeggree(
-                        tempature: weather.tempInCelsius.toStringAsFixed(0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          WeatherAppBar(weather.name!),
+                          SizedBox(height: 30),
+                          WeatherDate(timestamp: weather.dt!),
+                          SizedBox(height: 10),
+                          WeatherUpdateTime(timestamp: weather.dt!),
+                          SizedBox(height: 20),
+                          WeatherConditionIcon(model: weather),
+                          Text(
+                            weather.description!,
+                            style: TextStyle(
+                              fontSize: 33,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          TempatureDeggree(
+                            tempature: weather.tempInCelsius.toStringAsFixed(0),
+                          ),
+                          SizedBox(height: 20),
+                          WeatherInfoRow(
+                            humidity: weather.humidity!,
+                            windSpeed: weather.windSpeed!,
+                            feelsLike: weather.feelsLike!,
+                          ),
+                        ],
                       ),
-                      SizedBox(height: 20),
-                      WeatherInfoRow(
-                        humidity: weather.humidity!,
-                        windSpeed: weather.windSpeed!,
-                        feelsLike: weather.feelsLike!,
-                      ),
-                      SizedBox(height: 20),
-                      Container(
-                        width: double.infinity,
-                        height: 200,
-                        decoration: BoxDecoration(
-                          color: Color(0xFF535353).withOpacity(0.5),
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         );
