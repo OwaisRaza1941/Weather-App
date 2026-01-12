@@ -14,7 +14,6 @@ class WeatherUpdateTime extends StatelessWidget {
       style: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.w300,
-        color: Colors.white,
       ),
     );
   }

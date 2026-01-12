@@ -8,20 +8,20 @@ class WeatherAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(Icons.location_on_sharp, size: 30, color: Colors.white),
+        Icon(Icons.location_on_sharp, size: 30, color: Colors.black),
         SizedBox(width: 15),
         Text(
           cityName,
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
         Spacer(),
         IconButton(
           onPressed: () {},
-          icon: Icon(Icons.menu, size: 30, color: Colors.white),
+          icon: Icon(Icons.menu, size: 30, color: Colors.black),
         ),
       ],
     );

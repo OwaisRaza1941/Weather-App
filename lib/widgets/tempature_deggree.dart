@@ -15,8 +15,7 @@ class TempatureDeggree extends StatelessWidget {
           tempature,
           style: TextStyle(
             fontSize: size.height * 0.10,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
+           fontWeight: FontWeight.w300,
           ),
         ),
         Transform.translate(
@@ -25,8 +24,7 @@ class TempatureDeggree extends StatelessWidget {
             '°C',
             style: TextStyle(
               fontSize: 25,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+              fontWeight: FontWeight.w300,
             ),
           ),
         ),

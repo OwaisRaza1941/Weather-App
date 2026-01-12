@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:weather_app/controller/weather_controller.dart';
-import 'package:weather_app/screens/searching_weather_screen.dart';
+import 'package:weather_app/screens/weather_screen.dart';
 
 void main() {
   Get.put(WeatherController(), permanent: true);
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SearchingWeatherScreen(),
+      home: WeatherScreen(),
     );
   }
 }

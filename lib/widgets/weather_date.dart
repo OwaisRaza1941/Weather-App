@@ -15,7 +15,6 @@ class WeatherDate extends StatelessWidget {
       formattedDate,
       style: TextStyle(
         fontSize: 22,
-        color: Colors.white,
         fontWeight: FontWeight.w600,
       ),
     );

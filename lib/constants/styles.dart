@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Styles {
   static final searchingBarStyle = BoxDecoration(
-    color: Colors.black,
-    borderRadius: BorderRadius.circular(20),
+    color: Colors.white,
+    borderRadius: BorderRadius.circular(40),
   );
 }
